@@ -1,0 +1,7 @@
+<h1> rakesh </h1>
+<form id="new_form">
+  <input type="text" name="name" id="new_entry_name">
+  <input type="submit" value="add" id="submit_new_form">
+</form>
+<ul id="entries"></ul>
+
