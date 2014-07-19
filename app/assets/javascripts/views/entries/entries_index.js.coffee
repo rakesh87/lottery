@@ -6,17 +6,18 @@ class Lottery.Views.EntriesIndex extends Backbone.View
     'submit #new_form': "createEntry"
 
   initialize: ->
-    @collection.on('change', @render, this)
     @collection.on('add', @render, this)
+    @collection.fetch
+      success: (collection) ->
+        @render()
 
   render: ->
     $(@el).html(@template())
     @collection.each(@appendEntry)
-    @
+    this
 
   appendEntry: (entry) ->
     view = new Lottery.Views.Entry(model: entry)
-    console.log(view.render().el)
     $('#entries').append(view.render().el)
 
 
