@@ -1,5 +1,4 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
   def index
@@ -23,10 +22,6 @@ class EntriesController < ApplicationController
   end
 
   private
-    def set_entry
-      @post = Entry.find(params[:id])
-    end
-
     def entry_params
       params.require(:entry).permit(:name, :winner)
     end
