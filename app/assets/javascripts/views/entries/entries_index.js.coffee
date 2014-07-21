@@ -9,7 +9,7 @@ class Lottery.Views.EntriesIndex extends Backbone.View
     @collection.on('change', @render, this)
     @collection.on('add', @appendEntry, this)
     @collection.fetch
-      success: (collection) ->
+      success: (collection) =>
         @render()
 
   render: ->
@@ -17,10 +17,10 @@ class Lottery.Views.EntriesIndex extends Backbone.View
     @collection.each(@appendEntry)
     @
 
-  appendEntry: (entry) ->
+  appendEntry: (entry) =>
     view = new Lottery.Views.Entry(model: entry)
-    console.log(view.render().el)
-    $('#entries').append(view.render().el)
+    # logic behind @. and fat arrow 
+    @.$('#entries').append(view.render().el)
 
 
   createEntry: (e)->
